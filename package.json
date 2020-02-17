@@ -1,0 +1,21 @@
+{
+  "name": "gatsby-plugin-blog-cover",
+  "version": "1.0.0",
+  "description": "A plugin for automatically creating covers for blogs if no other cover is specified",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "blog",
+    "cover"
+  ],
+  "author": "Dillion Megida <dillionmegida@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "dom-to-image": "^2.6.0",
+    "node-html-to-image": "^1.1.0"
+  }
+}
