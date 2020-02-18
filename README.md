@@ -46,7 +46,7 @@ The `title` is used to create the image (which includes the `domain` text) and t
 The parameters available are:
 
 - `title` (**required**): The title of the blog post e.g "How To Create A Website".
-- `imagePath` (**required**): This is where the images are stored.
+- `imagePath` (**required**): This is where the images are stored. Images must be saved in `src`.
 - `domain` (**optional**): The domain of your blog e.g "https://example.com".
 - `border`: **true** or **false** if you want a border round the text. Default is **true**.
 - `titleColor`: The color of the title. The default is **black**
@@ -104,6 +104,8 @@ export const query = graphql`
 ```
 
 The path in your `require` function may be different. It is the path to the folder where your images live. So the above will translate to **require('../../src/images/the-blog-title.png')**
+
+You can use the cover slug in your graphs and twitter cards for perfect previews when shared on social media.
 
 `$slug` is a variable used in the query just as [seen in the Gatsby documentation](https://www.gatsbyjs.org/tutorial/part-seven/#creating-pages) for creating each blog post pages.
 
