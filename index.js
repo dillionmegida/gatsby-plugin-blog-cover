@@ -1,22 +1,56 @@
 const nodeHtmlToImage = require('node-html-to-image');
 const html = require('./image-style');
+const { titleToSlug } = require('./functions');
 
-const title = "How to Select a div in HTML so that it will work well";
-const domain = "https://dillionmegida.com";
-const border = false;
-const titleColor = "purple";
+const pluginName = 'gatsby-plugin-blog-cover';
 
-const output = html(title, domain, border, titleColor)
- 
-nodeHtmlToImage({
-  output: './image.png',
-  html: output,
-//   content: {
-//       title: title,
-//       domain: domain
-//   }
+const createImage= ({
+	title,
+	imgPath,
+    // default values bgColor, titleColr, image width and height
+	bgColor = "white",
+	titleColor = "black",
+	border = true,
+	domain,
+	imgHeight = "600px",
+	imgWidth = "1000px",
+	// Empty string is the default value for style which means the default style would be used
+	style = ""
+}) => {
+
+	const image = html({
+		title,
+		domain,
+		border,
+		titleColor,
+		bgColor,
+		imgHeight,
+		imgWidth,
+		style
+	});
+
+	const imgName = titleToSlug(title);
+	const imgSlug = `${imgPath}/${imgName}.png`;
+
+	nodeHtmlToImage({
+		output: imgSlug,
+		html: image,
+	})
+	.catch(err => {
+		console.log(`Error from ${pluginName},\nCouldn't create image because: ${err}`)
+	})
+
+	// Remove "./" and return the image slug
+	return imgSlug.replace(/^(\.\/)/, "");
+
+}
+
+createImage({
+	title: "Gatsby Plugin Blog Cover",
+	bgColor: "purple",
+	titleColor: "white",
+	imgPath: './',
+	domain: "https://dillionmegida.com"
 })
-  .then(() => console.log('The image was created successfully!'))
-  .catch(err => {
-      console.log(`Couldn't create image because: ${err}`)
-  })
+
+module.exports = createImage;
