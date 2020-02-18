@@ -40,8 +40,8 @@ const createImage= ({
 		console.log(`Error from ${pluginName},\nCouldn't create image because: ${err}`)
 	})
 
-	// Remove "./" and return the image slug
-	return imgSlug.replace(/^(\.\/)/, "");
+	// Remove "./src/" and return the image slug
+	return imgSlug.replace(/^(\.\/src\/)/, "");
 
 }
 
