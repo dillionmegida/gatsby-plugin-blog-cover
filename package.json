@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-blog-cover",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A plugin for automatically creating covers for blogs if no other cover is specified",
   "main": "index.js",
   "scripts": {
