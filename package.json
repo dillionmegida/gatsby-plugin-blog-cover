@@ -13,7 +13,7 @@
     "cover"
   ],
   "author": "Dillion Megida <dillionmegida@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "node-html-to-image": "^1.1.0"
   }
